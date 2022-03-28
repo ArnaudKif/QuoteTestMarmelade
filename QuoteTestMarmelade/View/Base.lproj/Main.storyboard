@@ -46,7 +46,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="19a-n6-ENI">
+                                    <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="19a-n6-ENI">
                                         <rect key="frame" x="9" y="223" width="394" height="31"/>
                                         <color key="tintColor" red="0.90196073060000004" green="0.40784314269999999" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <imageReference key="maximumValueImage" image="star.fill" catalog="system" renderingMode="hierarchical">
@@ -66,6 +66,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="CITATION SUIVANTE" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" name="InriaSans-Bold" family="Inria Sans" pointSize="12"/>
+                                            <color key="baseBackgroundColor" red="0.7607843876" green="0.19607841970000001" blue="0.42745098469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="NextQuoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XbH-EQ-ImD"/>
@@ -97,13 +98,30 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZu-GF-bR1" userLabel="EndButton">
+                                        <rect key="frame" x="81" y="317" width="252" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="ORG-uQ-hBw"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.7607843876" green="0.19607841970000001" blue="0.42745098469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="FINIR" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" name="InriaSans-Bold" family="Inria Sans" pointSize="12"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="NextQuoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NFl-KY-iPg"/>
+                                            <action selector="endbuttonTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kdi-tX-3qS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" red="0.4196078479" green="0.4196078479" blue="0.4196078479" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="as4-UQ-MJr" firstAttribute="centerX" secondItem="7DD-d7-9dX" secondAttribute="centerX" id="AFl-nE-1qJ"/>
+                                    <constraint firstItem="pZu-GF-bR1" firstAttribute="centerY" secondItem="4if-aE-HTX" secondAttribute="centerY" id="BOt-6L-Gfc"/>
                                     <constraint firstAttribute="trailing" secondItem="19a-n6-ENI" secondAttribute="trailing" constant="13" id="Cau-uP-4jV"/>
                                     <constraint firstItem="eCG-Qz-NTV" firstAttribute="leading" secondItem="7DD-d7-9dX" secondAttribute="leading" constant="13" id="Lvo-EN-RnH"/>
+                                    <constraint firstItem="pZu-GF-bR1" firstAttribute="centerX" secondItem="4if-aE-HTX" secondAttribute="centerX" id="OFF-Gm-yqh"/>
                                     <constraint firstItem="19a-n6-ENI" firstAttribute="top" secondItem="eCG-Qz-NTV" secondAttribute="bottom" constant="9" id="OQh-ha-Fbz"/>
                                     <constraint firstItem="4if-aE-HTX" firstAttribute="top" secondItem="19a-n6-ENI" secondAttribute="bottom" constant="64" id="QJ1-xZ-Z1m"/>
                                     <constraint firstItem="4if-aE-HTX" firstAttribute="leading" secondItem="7DD-d7-9dX" secondAttribute="leading" constant="81" id="Uxk-Va-Exf"/>
@@ -111,12 +129,14 @@
                                     <constraint firstItem="19a-n6-ENI" firstAttribute="leading" secondItem="7DD-d7-9dX" secondAttribute="leading" constant="11" id="cNw-w9-Tgf"/>
                                     <constraint firstAttribute="trailing" secondItem="0pA-gt-Wqg" secondAttribute="trailing" constant="11" id="crw-PI-qJd"/>
                                     <constraint firstAttribute="trailing" secondItem="4if-aE-HTX" secondAttribute="trailing" constant="81" id="enF-Bc-Ejy"/>
+                                    <constraint firstItem="pZu-GF-bR1" firstAttribute="height" secondItem="4if-aE-HTX" secondAttribute="height" id="hby-M3-eiw"/>
                                     <constraint firstItem="0pA-gt-Wqg" firstAttribute="top" secondItem="19a-n6-ENI" secondAttribute="bottom" constant="3" id="hvY-Bn-Z3z"/>
                                     <constraint firstItem="as4-UQ-MJr" firstAttribute="leading" secondItem="7DD-d7-9dX" secondAttribute="leading" constant="30" id="kh0-7k-rU6"/>
                                     <constraint firstAttribute="bottom" secondItem="4if-aE-HTX" secondAttribute="bottom" constant="220" id="ktO-YM-ucO"/>
                                     <constraint firstAttribute="trailing" secondItem="4if-aE-HTX" secondAttribute="trailing" constant="81" id="t5c-aA-96N"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4if-aE-HTX" secondAttribute="trailing" constant="20" symbolic="YES" id="uoD-hq-MKi"/>
                                     <constraint firstItem="as4-UQ-MJr" firstAttribute="top" secondItem="7DD-d7-9dX" secondAttribute="top" constant="62" id="vou-Tp-QY4"/>
+                                    <constraint firstItem="pZu-GF-bR1" firstAttribute="width" secondItem="4if-aE-HTX" secondAttribute="width" id="vyt-6z-hIo"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiley_sick" translatesAutoresizingMaskIntoConstraints="NO" id="tIP-ZV-BKc">
@@ -152,16 +172,19 @@
                         <outlet property="AuthorLabel" destination="0hD-Ku-n1m" id="qBa-UG-DXA"/>
                         <outlet property="BackgroundView" destination="8bC-Xf-vdC" id="6zU-9A-JhF"/>
                         <outlet property="SmileyImage" destination="tIP-ZV-BKc" id="0jf-lJ-Ghq"/>
+                        <outlet property="endButton" destination="pZu-GF-bR1" id="M5w-Ob-2xJ"/>
+                        <outlet property="nextbutton" destination="4if-aE-HTX" id="qSH-Im-02K"/>
                         <outlet property="progressLabel" destination="wpz-TK-8WB" id="Rwa-yH-tYM"/>
                         <outlet property="progressNumber" destination="xkE-1J-Jpi" id="swJ-DD-vcb"/>
                         <outlet property="progressSlider" destination="19a-n6-ENI" id="4Dc-o4-S5B"/>
+                        <outlet property="quoteButton" destination="4if-aE-HTX" id="yMo-sE-xvO"/>
                         <outlet property="quoteLabel" destination="iMW-i3-5Lo" id="vIX-jJ-HGY"/>
                         <outlet property="resultView" destination="7DD-d7-9dX" id="3qq-yz-Wvf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
+            <point key="canvasLocation" x="255" y="76"/>
         </scene>
     </scenes>
     <resources>
