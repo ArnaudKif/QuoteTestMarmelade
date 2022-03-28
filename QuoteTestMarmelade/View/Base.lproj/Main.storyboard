@@ -46,7 +46,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="19a-n6-ENI">
+                                    <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="19a-n6-ENI">
                                         <rect key="frame" x="9" y="223" width="394" height="31"/>
                                         <color key="tintColor" red="0.90196073060000004" green="0.40784314269999999" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <imageReference key="maximumValueImage" image="star.fill" catalog="system" renderingMode="hierarchical">
