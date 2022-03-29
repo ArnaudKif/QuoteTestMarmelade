@@ -1,0 +1,13 @@
+query randomQ {
+  randomQuote {
+    quote
+    author
+  }
+}
+query allQuery {
+  quotes {
+    id
+    quote
+    author
+  }
+}

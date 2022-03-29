@@ -1,7 +1,0 @@
-query Query {
-  randomQuote {
-    quote
-    id
-    author
-  }
-}
