@@ -25,6 +25,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8I-B2-Ntr" userLabel="gradientView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.90196073060000004" green="0.40784314269999999" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auteur" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hD-Ku-n1m" userLabel="auteurLabel">
                                 <rect key="frame" x="30" y="134" width="354" height="46"/>
                                 <constraints>
@@ -152,27 +156,30 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.90196073060000004" green="0.40784314269999999" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="iMW-i3-5Lo" firstAttribute="top" secondItem="0hD-Ku-n1m" secondAttribute="bottom" constant="13" id="3W4-ib-XLL"/>
                             <constraint firstItem="7DD-d7-9dX" firstAttribute="top" secondItem="tIP-ZV-BKc" secondAttribute="bottom" constant="-35" id="55Q-PU-LGQ"/>
                             <constraint firstItem="0hD-Ku-n1m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="9qo-ML-gWZ"/>
                             <constraint firstItem="0hD-Ku-n1m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9ye-wb-tcn"/>
+                            <constraint firstItem="V8I-B2-Ntr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AcR-ev-QgM"/>
                             <constraint firstItem="0hD-Ku-n1m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="750" constant="90" id="Hlx-cW-sWe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V8I-B2-Ntr" secondAttribute="trailing" id="LKj-pB-sUM"/>
                             <constraint firstItem="7DD-d7-9dX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZIV-2x-vad"/>
                             <constraint firstItem="tIP-ZV-BKc" firstAttribute="top" secondItem="iMW-i3-5Lo" secondAttribute="bottom" constant="13" id="a7o-D2-9ra"/>
                             <constraint firstItem="iMW-i3-5Lo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ad7-2V-iKT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iMW-i3-5Lo" secondAttribute="trailing" constant="30" id="b2Y-Hc-CDT"/>
                             <constraint firstItem="iMW-i3-5Lo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="bA6-nj-aNj"/>
+                            <constraint firstAttribute="bottom" secondItem="V8I-B2-Ntr" secondAttribute="bottom" id="etc-FB-N2A"/>
+                            <constraint firstItem="V8I-B2-Ntr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jln-fk-UPZ"/>
                             <constraint firstAttribute="bottom" secondItem="7DD-d7-9dX" secondAttribute="bottom" id="jo7-VC-iMs"/>
                             <constraint firstItem="7DD-d7-9dX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rNq-sI-SgU"/>
                             <constraint firstItem="tIP-ZV-BKc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tko-aI-FoV"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BackgroundView" destination="8bC-Xf-vdC" id="6zU-9A-JhF"/>
                         <outlet property="authorLabel" destination="0hD-Ku-n1m" id="qBa-UG-DXA"/>
                         <outlet property="endButton" destination="pZu-GF-bR1" id="M5w-Ob-2xJ"/>
+                        <outlet property="gradientView" destination="V8I-B2-Ntr" id="LfZ-B1-hgj"/>
                         <outlet property="nextButton" destination="4if-aE-HTX" id="qSH-Im-02K"/>
                         <outlet property="progressLabel" destination="wpz-TK-8WB" id="Rwa-yH-tYM"/>
                         <outlet property="progressNumber" destination="xkE-1J-Jpi" id="swJ-DD-vcb"/>
@@ -185,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="76"/>
+            <point key="canvasLocation" x="253.62318840579712" y="75.669642857142847"/>
         </scene>
     </scenes>
     <resources>
