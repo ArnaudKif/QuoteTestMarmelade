@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DD-d7-9dX" userLabel="ResultView">
-                                <rect key="frame" x="0.0" y="327" width="414" height="569"/>
+                                <rect key="frame" x="0.0" y="327" width="414" height="582"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 citations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pA-gt-Wqg">
                                         <rect key="frame" x="338.5" y="256" width="64.5" height="16"/>
@@ -81,6 +81,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="nextQuoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wzB-ub-8ut"/>
+                                            <segue destination="eQd-ab-8RQ" kind="show" identifier="ToFinalVC" id="I79-JG-lyW"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Votre Progression" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCG-Qz-NTV">
@@ -171,7 +172,7 @@
                             <constraint firstItem="iMW-i3-5Lo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="bA6-nj-aNj"/>
                             <constraint firstAttribute="bottom" secondItem="V8I-B2-Ntr" secondAttribute="bottom" id="etc-FB-N2A"/>
                             <constraint firstItem="V8I-B2-Ntr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jln-fk-UPZ"/>
-                            <constraint firstAttribute="bottom" secondItem="7DD-d7-9dX" secondAttribute="bottom" id="jo7-VC-iMs"/>
+                            <constraint firstAttribute="bottom" secondItem="7DD-d7-9dX" secondAttribute="bottom" constant="-13" id="jo7-VC-iMs"/>
                             <constraint firstItem="7DD-d7-9dX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rNq-sI-SgU"/>
                             <constraint firstItem="tIP-ZV-BKc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tko-aI-FoV"/>
                         </constraints>
@@ -194,10 +195,86 @@
             </objects>
             <point key="canvasLocation" x="253.62318840579712" y="75.669642857142847"/>
         </scene>
+        <!--Final View Controller-->
+        <scene sceneID="f7i-UG-unV">
+            <objects>
+                <viewController id="eQd-ab-8RQ" customClass="FinalViewController" customModule="QuoteTestMarmelade" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K0p-vY-oS5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGD-1L-Nu7" userLabel="backgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" red="0.90196073060000004" green="0.40784314269999999" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bravo ! Vous êtes arrivez jusqu'à la fin ! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhe-Nw-AcS" userLabel="Bravo ! Vous êtes arrivez jusqu'à la fin !">
+                                <rect key="frame" x="20" y="272.5" width="374" height="97"/>
+                                <fontDescription key="fontDescription" name="InriaSans-Bold" family="Inria Sans" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" systemColor="labelColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XA8-xk-y9E">
+                                <rect key="frame" x="30" y="74" width="128" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="1me-kv-N0r"/>
+                                    <constraint firstAttribute="height" constant="34" id="Luz-1u-wiX"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward.fill" catalog="system" subtitle="Retour" titleAlignment="center">
+                                    <fontDescription key="subtitleFontDescription" name="InriaSans-Bold" family="Inria Sans" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backbuttonTaped:" destination="eQd-ab-8RQ" eventType="touchUpInside" id="gil-bn-bIs"/>
+                                    <action selector="dismiss" destination="eQd-ab-8RQ" eventType="touchUpInside" id="QIL-sh-5ge"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiley_awe" translatesAutoresizingMaskIntoConstraints="NO" id="s1D-EP-d8K">
+                                <rect key="frame" x="30" y="399.5" width="354" height="412.5"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MNb-UN-Hwl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nhe-Nw-AcS" firstAttribute="centerX" secondItem="K0p-vY-oS5" secondAttribute="centerX" id="0Ts-QY-rda"/>
+                            <constraint firstItem="BGD-1L-Nu7" firstAttribute="bottom" secondItem="MNb-UN-Hwl" secondAttribute="bottom" id="6JX-R4-MsS"/>
+                            <constraint firstItem="BGD-1L-Nu7" firstAttribute="top" secondItem="K0p-vY-oS5" secondAttribute="top" id="74v-qc-5jU"/>
+                            <constraint firstItem="BGD-1L-Nu7" firstAttribute="leading" secondItem="MNb-UN-Hwl" secondAttribute="leading" id="99Q-gM-4EY"/>
+                            <constraint firstAttribute="trailing" secondItem="Nhe-Nw-AcS" secondAttribute="trailing" constant="20" id="Hl5-13-qW6"/>
+                            <constraint firstItem="Nhe-Nw-AcS" firstAttribute="leading" secondItem="K0p-vY-oS5" secondAttribute="leading" constant="20" id="Jw2-kC-khf"/>
+                            <constraint firstItem="XA8-xk-y9E" firstAttribute="top" secondItem="MNb-UN-Hwl" secondAttribute="top" constant="30" id="K6q-aX-c0x"/>
+                            <constraint firstItem="MNb-UN-Hwl" firstAttribute="bottom" secondItem="s1D-EP-d8K" secondAttribute="bottom" constant="30" id="RQB-zd-DMZ"/>
+                            <constraint firstItem="s1D-EP-d8K" firstAttribute="leading" secondItem="MNb-UN-Hwl" secondAttribute="leading" constant="30" id="Vqq-yU-EAG"/>
+                            <constraint firstItem="XA8-xk-y9E" firstAttribute="leading" secondItem="MNb-UN-Hwl" secondAttribute="leading" constant="30" id="Z45-EM-OZr"/>
+                            <constraint firstItem="Nhe-Nw-AcS" firstAttribute="centerY" secondItem="K0p-vY-oS5" secondAttribute="centerY" constant="-100" id="aOh-X6-nLG"/>
+                            <constraint firstItem="MNb-UN-Hwl" firstAttribute="trailing" secondItem="s1D-EP-d8K" secondAttribute="trailing" constant="30" id="aeQ-1S-PqO"/>
+                            <constraint firstItem="BGD-1L-Nu7" firstAttribute="leading" secondItem="MNb-UN-Hwl" secondAttribute="leading" id="dSN-LK-KbB"/>
+                            <constraint firstItem="s1D-EP-d8K" firstAttribute="top" secondItem="Nhe-Nw-AcS" secondAttribute="bottom" constant="30" id="eDX-De-JgL"/>
+                            <constraint firstItem="BGD-1L-Nu7" firstAttribute="trailing" secondItem="MNb-UN-Hwl" secondAttribute="trailing" id="gkk-Ur-ztM"/>
+                            <constraint firstItem="BGD-1L-Nu7" firstAttribute="top" secondItem="K0p-vY-oS5" secondAttribute="top" id="kXU-1U-DNF"/>
+                            <constraint firstItem="MNb-UN-Hwl" firstAttribute="trailing" secondItem="BGD-1L-Nu7" secondAttribute="trailing" id="tSq-oU-NVI"/>
+                            <constraint firstAttribute="bottom" secondItem="BGD-1L-Nu7" secondAttribute="bottom" id="zoR-H7-E5I"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JGy-o8-z8w"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="BGD-1L-Nu7" id="F4P-7C-YcX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Luf-n3-aDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159.4202898550725" y="96.428571428571431"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
+        <image name="smiley_awe" width="158" height="134.5"/>
         <image name="smiley_sick" width="159" height="132"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

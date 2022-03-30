@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962A1FD027F4A51F00B51C8F /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A1FCF27F4A51E00B51C8F /* FinalViewController.swift */; };
 		9690CCFA27F330280058D8D7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690CCF927F330280058D8D7 /* API.swift */; };
 		9690CCFC27F332D20058D8D7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690CCFB27F332D20058D8D7 /* Network.swift */; };
 		969266B127F1DAEA009DBC15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969266B027F1DAEA009DBC15 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		962A1FCF27F4A51E00B51C8F /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		9690CCF927F330280058D8D7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9690CCFB27F332D20058D8D7 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		969266AD27F1DAEA009DBC15 /* QuoteTestMarmelade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteTestMarmelade.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 			children = (
 				969266B427F1DAEA009DBC15 /* ViewController.swift */,
 				969266E227F1F203009DBC15 /* QuoteViewController.swift */,
+				962A1FCF27F4A51E00B51C8F /* FinalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				969266B527F1DAEA009DBC15 /* ViewController.swift in Sources */,
+				962A1FD027F4A51F00B51C8F /* FinalViewController.swift in Sources */,
 				969266E327F1F203009DBC15 /* QuoteViewController.swift in Sources */,
 				969266B127F1DAEA009DBC15 /* AppDelegate.swift in Sources */,
 				9690CCFA27F330280058D8D7 /* API.swift in Sources */,

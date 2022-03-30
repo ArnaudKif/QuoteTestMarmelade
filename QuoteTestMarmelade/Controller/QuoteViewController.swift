@@ -10,7 +10,7 @@ import UIKit
 class QuoteViewController: UIViewController {
     // MARK: - Class properties
     var progressRate: Int = 0
-
+    var isTheEnd: Bool = false
     // Setting of background gradient
     lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
@@ -52,17 +52,24 @@ class QuoteViewController: UIViewController {
         self.progressNumber.text = "\(progressRate) % "
         endButton.isHidden = true
         gradientView.layer.addSublayer(gradient)
+        resultView.layer.cornerRadius = 12.0
+        nextButton.setTitle("CITATION SUIVANTE", for: .normal)
     }
 
     // MARK: - IBActions
     @IBAction func endbuttonTaped(_ sender: Any) {
         resetProgress()
         progressRate = 0
-        quoteButton.isHidden = false
-        endButton.isHidden = true
+//        quoteButton.isHidden = false
+//        endButton.isHidden = true
     }
 
     @IBAction func nextQuoteButton(_ sender: Any) {
+        //TODO: - Activer le segue que lorsque qu'il y a istheEnd...
+        if isTheEnd {
+            resetProgress()
+            progressRate = 0
+        } else {
         // TODO: - Lancer la prochaine citation et mettre à jour les labels
         nextQuote()
         progressRate += 10
@@ -70,6 +77,7 @@ class QuoteViewController: UIViewController {
         progressSlider.value = Float(progressRate)
         // print(progressRate)
         checkProgress()
+        }
     }
 
     // MARK: - Class methods
@@ -77,19 +85,19 @@ class QuoteViewController: UIViewController {
     func checkProgress() {
         if progressRate > 79 {
             self.smileyImage.image = UIImage(named: "smiley_awe.png")
-        }
-        if progressRate < 79 && progressRate > 39 {
+        } else if progressRate < 79 && progressRate > 39 {
             self.smileyImage.image = UIImage(named: "smiley_meh.png")
-        }
-        if progressRate < 39 {
+        } else if progressRate < 39 {
             self.smileyImage.image = UIImage(named: "smiley_sick.png")
         }
         if progressRate == 50 {
             createAlert()
         }
         if progressRate == 100 {
-            quoteButton.isHidden = true
-            endButton.isHidden = false
+            isTheEnd = true
+            nextButton.setTitle("FINIR", for: .normal)
+//            quoteButton.isHidden = true
+//            endButton.isHidden = false
             progressRate = -10
             createFinalAlert()
         }
@@ -124,6 +132,8 @@ class QuoteViewController: UIViewController {
         smileyImage.image = UIImage(named: "smiley_sick.png")
         progressNumber.text = "0 % "
         progressSlider.value = 0.0
+        nextButton.setTitle("CITATION SUIVANTE", for: .normal)
+        isTheEnd = false
     }
 
     /// Alert at 50% of progess : continue or restart ?
