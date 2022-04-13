@@ -25,6 +25,9 @@
 		969266F027F1FA3E009DBC15 /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 969266EF27F1FA3E009DBC15 /* ApolloSQLite */; };
 		969266F227F1FA3E009DBC15 /* ApolloUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 969266F127F1FA3E009DBC15 /* ApolloUtils */; };
 		969266F427F1FA3E009DBC15 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 969266F327F1FA3E009DBC15 /* ApolloWebSocket */; };
+		96D5676228000CC30075B22E /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5676128000CC30075B22E /* QuoteViewModel.swift */; };
+		96D5676428000CD30075B22E /* FinalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5676328000CD30075B22E /* FinalViewModel.swift */; };
+		96D5676628000CE30075B22E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5676528000CE30075B22E /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		969266E227F1F203009DBC15 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		969266FB27F1FF66009DBC15 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		969266FC27F1FF99009DBC15 /* QuoteQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = QuoteQuery.graphql; sourceTree = "<group>"; };
+		96D5676128000CC30075B22E /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
+		96D5676328000CD30075B22E /* FinalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewModel.swift; sourceTree = "<group>"; };
+		96D5676528000CE30075B22E /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 				969266BE27F1DAEC009DBC15 /* Info.plist */,
 				969266E427F1F7E5009DBC15 /* Model */,
 				969266E627F1F7F9009DBC15 /* Controller */,
+				96D5676028000C990075B22E /* ViewModel */,
 				969266E527F1F7EE009DBC15 /* View */,
 				9690CCF927F330280058D8D7 /* API.swift */,
 				969266FB27F1FF66009DBC15 /* schema.json */,
@@ -107,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				9690CCFB27F332D20058D8D7 /* Network.swift */,
+				96D5676528000CE30075B22E /* Box.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +147,15 @@
 				969266DD27F1E77F009DBC15 /* fonts */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		96D5676028000C990075B22E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96D5676128000CC30075B22E /* QuoteViewModel.swift */,
+				96D5676328000CD30075B22E /* FinalViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,12 +265,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				969266B527F1DAEA009DBC15 /* ViewController.swift in Sources */,
+				96D5676228000CC30075B22E /* QuoteViewModel.swift in Sources */,
 				962A1FD027F4A51F00B51C8F /* FinalViewController.swift in Sources */,
 				969266E327F1F203009DBC15 /* QuoteViewController.swift in Sources */,
 				969266B127F1DAEA009DBC15 /* AppDelegate.swift in Sources */,
 				9690CCFA27F330280058D8D7 /* API.swift in Sources */,
+				96D5676428000CD30075B22E /* FinalViewModel.swift in Sources */,
 				9690CCFC27F332D20058D8D7 /* Network.swift in Sources */,
 				969266B327F1DAEA009DBC15 /* SceneDelegate.swift in Sources */,
+				96D5676628000CE30075B22E /* Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

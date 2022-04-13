@@ -9,9 +9,8 @@ import UIKit
 
 class QuoteViewController: UIViewController {
     // MARK: - Class properties
-    var progressRate: Int = 0
-    var isTheEnd: Bool = false
-    // Setting of background gradient
+private let viewModel = QuoteViewModel()
+
     lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.type = .axial
@@ -43,115 +42,61 @@ class QuoteViewController: UIViewController {
     @IBOutlet weak var resultView: UIView!
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var quoteButton: UIButton!
-    @IBOutlet weak var endButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.progressNumber.text = "\(progressRate) % "
-        endButton.isHidden = true
         gradientView.layer.addSublayer(gradient)
         resultView.layer.cornerRadius = 12.0
-        nextButton.setTitle("CITATION SUIVANTE", for: .normal)
-    }
 
-    // MARK: - IBActions
-    @IBAction func endbuttonTaped(_ sender: Any) {
-        resetProgress()
-        progressRate = 0
-//        quoteButton.isHidden = false
-//        endButton.isHidden = true
-    }
-
-    @IBAction func nextQuoteButton(_ sender: Any) {
-        //TODO: - Activer le segue que lorsque qu'il y a istheEnd...
-        if isTheEnd {
-            resetProgress()
-            progressRate = 0
-        } else {
-        // TODO: - Lancer la prochaine citation et mettre à jour les labels
-        nextQuote()
-        progressRate += 10
-        progressNumber.text = "\(progressRate) % "
-        progressSlider.value = Float(progressRate)
-        // print(progressRate)
-        checkProgress()
+        viewModel.icon.bind { [weak self] smiley in
+            self?.smileyImage.image = smiley
         }
-    }
-
-    // MARK: - Class methods
-    /// Check the progress and update the smiley image
-    func checkProgress() {
-        if progressRate > 79 {
-            self.smileyImage.image = UIImage(named: "smiley_awe.png")
-        } else if progressRate < 79 && progressRate > 39 {
-            self.smileyImage.image = UIImage(named: "smiley_meh.png")
-        } else if progressRate < 39 {
-            self.smileyImage.image = UIImage(named: "smiley_sick.png")
+        viewModel.buttonText.bind { [weak self] butText in
+            self?.nextButton.setTitle("\(butText)", for: .normal)
         }
-        if progressRate == 50 {
-            createAlert()
+        viewModel.authorText.bind { [weak self] author in
+            self?.authorLabel.text = author
         }
-        if progressRate == 100 {
-            isTheEnd = true
-            nextButton.setTitle("FINIR", for: .normal)
-//            quoteButton.isHidden = true
-//            endButton.isHidden = false
-            progressRate = -10
-            createFinalAlert()
+        viewModel.citationText.bind { [weak self] quote in
+            self?.quoteLabel.text = quote
         }
-    }
-
-    /// Launches the network call, retrieves a quote and updates the quote display
-    func nextQuote() {
-        Network.shared.apollo.fetch(query: AllQueryQuery()) { [weak self] result in
-            switch result {
-            case .success(let graphQLResult):
-                let countResult = graphQLResult.data?.quotes.count
-                let randomIndex = Int.random(in: 0..<countResult!)
-                guard let author = graphQLResult.data?.quotes[randomIndex].author,
-                      let quote = graphQLResult.data?.quotes[randomIndex].quote
-                else { return }
-                DispatchQueue.main.async{
-                    print("index : \(randomIndex) \n auteur : \(author)\n citation : \(quote)")
-                    self?.authorLabel.text = author
-                    self?.quoteLabel.text = quote
-                }
-            case .failure(let error):
-                print("Failure! Error: \(error)")
+        viewModel.progressText.bind { [weak self] progText in
+            self?.progressNumber.text = progText
+        }
+        viewModel.progressSlider.bind { [weak self] slidText in
+            self?.progressSlider.value = slidText
+        }
+        viewModel.progressRate.bind { [weak self] rate in
+            if rate == 50 {
+                self?.createAlert()
+            }
+            if rate == 100 {
+                self?.toFinalView(self!.quoteButton)
             }
         }
     }
 
-    /// Restart the progress from the beginning
-    func resetProgress() {
-        progressRate = 0
-        authorLabel.text = "Auteur"
-        quoteLabel.text = "citation"
-        smileyImage.image = UIImage(named: "smiley_sick.png")
-        progressNumber.text = "0 % "
-        progressSlider.value = 0.0
-        nextButton.setTitle("CITATION SUIVANTE", for: .normal)
-        isTheEnd = false
+    // MARK: - IBActions
+    @IBAction func nextQuoteButton(_ sender: Any) {
+        viewModel.nextButtonTaped()
+    }
+
+    @IBAction func toFinalView(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let finalPage = storyboard.instantiateViewController(withIdentifier: "FinalView") as! FinalViewController
+        present(finalPage, animated: true)
     }
 
     /// Alert at 50% of progess : continue or restart ?
     func createAlert() {
         //TODO: - Finir de paramètrer l'affichage...
         let alertVC = UIAlertController(title: "Tu es à 50% des citations !", message: "Tu as bientôt fini !", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Arrêter", style: .destructive, handler: {(alert: UIAlertAction!) in self.resetProgress() }))
+        alertVC.addAction(UIAlertAction(title: "Arrêter", style: .destructive, handler: {(alert: UIAlertAction!) in self.viewModel.resetProgress() }))
         alertVC.addAction(UIAlertAction(title: "Continuer", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
-
-    /// Final alert : Congrats
-    func createFinalAlert() {
-        let alertVC = UIAlertController(title: "🎉Tu es arrivé jusqu'à la fin!🎉", message: "J'espère que tu as appris beaucoup de choses.", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Recommencer", style: .cancel, handler: nil))
-        present(alertVC, animated: true, completion: nil)
-    }
-
 
 }
 
